@@ -490,6 +490,37 @@
         font-size: 1.75rem;
       }
     }
+    /* ── Lightbox ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999;
+      cursor: zoom-out;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-overlay.open {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 60px rgba(0,0,0,0.6);
+      animation: zoomin 0.2s ease;
+    }
+
+    @keyframes zoomin {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
   </style>
 </head>
 
@@ -500,7 +531,13 @@
     <!-- LEFT PANEL -->
     <aside class="left">
       <div class="left-top">
-        <img class="avatar" src="avatar.jpg" alt="Ronny Nyabuto">
+        <img
+          class="avatar"
+          src="avatar.jpg"
+          alt="Ronny Nyabuto"
+          onclick="document.getElementById('lb').classList.add('open')"
+          style="cursor:zoom-in"
+        >
         <h1><a href="/">Ronny Nyabuto</a></h1>
         <p class="left-tagline">Software Engineer</p>
         <p class="left-bio">
@@ -766,6 +803,10 @@
       el.classList.add('active');
     }
   </script>
+
+  <div id="lb" class="lightbox-overlay" onclick="this.classList.remove('open')">
+    <img src="avatar.jpg" alt="Ronny Nyabuto">
+  </div>
 
 </body>
 
