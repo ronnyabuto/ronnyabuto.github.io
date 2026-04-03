@@ -677,7 +677,7 @@
         </div>
 
         <div class="project">
-          <div class="project-year">Feb 2026</div>
+          <div class="project-year">2026 — Present</div>
           <div class="project-content">
             <div class="project-title">
               <a href="https://github.com/ronnyabuto/mpesa-stk" target="_blank" rel="noopener noreferrer">mpesa-stk</a>
@@ -696,12 +696,16 @@
               handles all of that: idempotent initiation,
               <strong>atomic callback deduplication</strong>, polling fallback, and a
               reconciliation pass for payments that fall through every other safety net.
+              v0.2.0 adds a <strong>webhook relay server</strong> — point your Safaricom
+              CallbackURL at the relay and it guarantees delivery to your app with
+              exponential-backoff retries, even if your server restarts mid-payment window.
             </p>
             <div class="tag-row">
               <span class="tag">TypeScript</span>
               <span class="tag">Node.js</span>
               <span class="tag">PostgreSQL</span>
               <span class="tag">M-Pesa</span>
+              <span class="tag">Webhooks</span>
             </div>
           </div>
         </div>
