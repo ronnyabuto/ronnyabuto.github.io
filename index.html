@@ -305,8 +305,12 @@
       display: grid;
       grid-template-columns: 130px 1fr;
       gap: 20px;
-      padding: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 24px;
+      align-items: start;
+    }
+
+    .project-content {
+      padding: 24px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -315,12 +319,12 @@
       cursor: pointer;
     }
 
-    .project:hover {
+    .project-content:hover {
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       transform: scale(0.985);
     }
 
-    .project:active {
+    .project-content:active {
       transform: scale(0.97);
     }
 
@@ -328,9 +332,11 @@
       font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
       font-size: 0.75rem;
       color: var(--secondary);
-      padding-top: 4px;
+      padding-top: 24px;
       letter-spacing: 0.04em;
       white-space: nowrap;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     .project-title {
@@ -545,10 +551,12 @@
       .project {
         grid-template-columns: 1fr;
         gap: 8px;
+        margin-bottom: 32px;
       }
 
       .project-year {
-        display: none;
+        padding-top: 0;
+        margin-bottom: -4px;
       }
 
       .left-top h1 {
