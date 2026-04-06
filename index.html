@@ -638,6 +638,56 @@
       display: flex;
     }
 
+    /* ── Project Focus Modal ── */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .project-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(var(--surface-rgb), 0.7);
+      backdrop-filter: blur(24px) saturate(120%);
+      -webkit-backdrop-filter: blur(24px) saturate(120%);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: zoom-out;
+    }
+
+    .project-modal.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .project-modal-wrapper {
+      max-width: 700px;
+      width: 100%;
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: default;
+    }
+
+    .project-modal.open .project-modal-wrapper {
+      transform: scale(1.02);
+    }
+
+    .project-modal .project-content {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2) !important;
+      padding: 32px !important;
+    }
+
+    .project-modal .project-content:hover,
+    .project-modal .project-content:active {
+      transform: none !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2) !important;
+      cursor: default !important;
+    }
+
     .lightbox-overlay img {
       width: 260px;
       height: 260px;
@@ -971,6 +1021,14 @@
     </a>
   </nav>
 
+  <div id="lb" class="lightbox-overlay" onclick="this.classList.remove('open')">
+    <img src="avatar.jpg" alt="Ronny Nyabuto">
+  </div>
+  
+  <div id="project-modal" class="project-modal">
+    <div id="project-modal-wrapper" class="project-modal-wrapper"></div>
+  </div>
+
   <script>
     // Scroll-spy — highlights nav item matching visible section
     const sections = document.querySelectorAll('section[id]');
@@ -1026,11 +1084,52 @@
       localStorage.setItem('theme', currentTheme);
       applyTheme(currentTheme);
     });
-  </script>
 
-  <div id="lb" class="lightbox-overlay" onclick="this.classList.remove('open')">
-    <img src="avatar.jpg" alt="Ronny Nyabuto">
-  </div>
+    // Project Focus Modal Logic
+    const projectCards = document.querySelectorAll('.project-content');
+    const projectModal = document.getElementById('project-modal');
+    const projectModalWrapper = document.getElementById('project-modal-wrapper');
+
+    function closeProjectModal() {
+      projectModal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+      // allow animation to complete before emptying
+      setTimeout(() => {
+        if (!projectModal.classList.contains('open')) {
+          projectModalWrapper.innerHTML = '';
+        }
+      }, 300);
+    }
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Ignore clicks on links so they function naturally
+        if (e.target.closest('a')) return;
+
+        projectModalWrapper.innerHTML = card.outerHTML;
+        document.body.classList.add('modal-open');
+        projectModal.classList.add('open');
+      });
+    });
+
+    // Close on backdrop click
+    if (projectModal) {
+      projectModal.addEventListener('click', (e) => {
+        // If they clicked the wrapper exactly (the backdrop area), close it.
+        if (e.target === projectModal) {
+          closeProjectModal();
+        }
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+        closeProjectModal();
+      }
+    });
+
+  </script>
 
 </body>
 
