@@ -75,6 +75,7 @@
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
+      overflow-x: hidden;
       opacity: 0;
       animation: fadein 500ms ease forwards;
     }
@@ -414,19 +415,24 @@
 
     .writing-marquee-outer {
       overflow: hidden;
-      /* Edge fade masks so cards drift in/out softly */
+      margin-right: -200px;
+      /* Vertical padding gives hover shadow/transform room to breathe
+         without being hard-clipped; negative margin keeps spacing intact */
+      padding: 12px 0;
+      margin-top: -12px;
+      margin-bottom: -12px;
       -webkit-mask-image: linear-gradient(
         to right,
         transparent 0%,
         black 8%,
-        black 92%,
+        black 88%,
         transparent 100%
       );
       mask-image: linear-gradient(
         to right,
         transparent 0%,
         black 8%,
-        black 92%,
+        black 88%,
         transparent 100%
       );
     }
