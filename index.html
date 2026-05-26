@@ -385,6 +385,27 @@
       margin-bottom: 12px;
     }
 
+    .project-desc-full {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .project-desc-full strong {
+      color: var(--primary);
+      font-weight: 400;
+    }
+
+    .project-modal .project-desc-full {
+      display: block;
+    }
+
+    .project-modal .project-desc {
+      display: none;
+    }
+
     .project-desc strong {
       color: var(--primary);
       font-weight: 400;
@@ -845,6 +866,39 @@
         <p class="section-label">Work</p>
 
         <div class="project">
+          <div class="project-year">May 2026</div>
+          <div class="project-content">
+            <div class="project-title">
+              <a href="https://github.com/ronnyabuto/wayward" target="_blank" rel="noopener noreferrer">wayward</a>
+              <div class="ext-links">
+                <a class="ext-link" href="https://t.me/waywardapp_bot" target="_blank" rel="noopener noreferrer">Live ↗</a>
+                <a class="ext-link" href="https://github.com/ronnyabuto/wayward" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              </div>
+            </div>
+            <p class="project-desc">Telegram bot for Nairobi commuters — tells you when to leave based on live traffic vs. your personal commute history.</p>
+            <p class="project-desc-full">
+              Nairobi traffic isn't bad every day — it's bad on specific routes, at specific hours,
+              in ways Google Maps won't tell you because it doesn't know your commute.
+              Wayward is a Telegram bot that tells you whether to leave now or wait, based on
+              <strong>live traffic compared against your own historical baseline</strong> for that
+              route, day, and hour. It learns from every trip. Below three data points it stays
+              quiet. Once it has enough signal, it alerts you the moment congestion actually drops —
+              not just when it's theoretically clear. The <code>depart</code> command checks current
+              conditions, <strong>forecasts two hours ahead</strong>, and sets a watch automatically.
+              <code>scenic</code> scores alternate routes against Overpass data if you'd rather take
+              the long way. NLP handled by Gemini so you can just type where you're going.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Node.js</span>
+              <span class="tag">Telegram</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Gemini</span>
+              <span class="tag">Google Routes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
           <div class="project-year">Mar 2026</div>
           <div class="project-content">
             <div class="project-title">
@@ -856,7 +910,8 @@
                   rel="noopener noreferrer">GitHub ↗</a>
               </div>
             </div>
-            <p class="project-desc">
+            <p class="project-desc">Flutter package managing the full M-Pesa STK Push lifecycle — from initiation through killed-app recovery, without a proxy server.</p>
+            <p class="project-desc-full">
               Daraja handles STK Push initiation. It doesn't handle what happens when the user locks
               their phone mid-payment, switches apps, or closes yours entirely before the callback
               arrives. This Flutter package manages the <strong>full payment lifecycle</strong>:
@@ -891,7 +946,8 @@
                   rel="noopener noreferrer">Error Codes ↗</a>
               </div>
             </div>
-            <p class="project-desc">
+            <p class="project-desc">Python SDK for KRA's eTIMS API — OAuth, VAT arithmetic across five tax bands, idempotency for in-flight failures, and full async support.</p>
+            <p class="project-desc-full">
               KRA's eTIMS API has no official Python SDK. Every developer integrating it rebuilds
               the same things: OAuth token refresh, VAT arithmetic across five tax bands,
               <strong>idempotency for in-flight network failures</strong> — the Schrödinger's Invoice
@@ -921,7 +977,8 @@
                   rel="noopener noreferrer">npm ↗</a>
               </div>
             </div>
-            <p class="project-desc">
+            <p class="project-desc">TypeScript library for idempotent M-Pesa STK Push — atomic callback deduplication, polling fallback, and a webhook relay that survives server restarts.</p>
+            <p class="project-desc-full">
               An npm package. Daraja gives you STK Push initiation. It doesn't handle what happens when
               <strong>the callback never arrives</strong>, when Safaricom sends the same callback
               three times under load, when a client retries and gets double-charged, or when your
@@ -956,7 +1013,8 @@
                   rel="noopener noreferrer">GitHub ↗</a>
               </div>
             </div>
-            <p class="project-desc">
+            <p class="project-desc">Searchable reference for every Daraja API error code — causes and fixes the official documentation doesn't provide.</p>
+            <p class="project-desc-full">
               Safaricom's Daraja documentation doesn't document its own error codes
               comprehensively. Developers hit cryptic failures and have nowhere to look.
               A searchable reference for every error the Daraja API returns — causes, fixes,
@@ -981,7 +1039,8 @@
                 <a class="ext-link" href="https://shammyhomes.com" target="_blank" rel="noopener noreferrer">Live ↗</a>
               </div>
             </div>
-            <p class="project-desc">
+            <p class="project-desc">Full-stack short-stay rental platform — Paystack payments, AI guest chat, OTA sync for Airbnb and Booking.com, and a yield engine that auto-prices gaps. Live.</p>
+            <p class="project-desc-full">
               Full-stack short-stay rental platform built for a Nairobi property host —
               real bookings, Paystack payments (M-Pesa + card), a yield engine that
               auto-prices vacancy gaps, AI-powered guest chat with WhatsApp integration,
