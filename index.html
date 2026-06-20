@@ -557,6 +557,63 @@
       letter-spacing: 0.03em;
     }
 
+    /* ── Also: client sites — a tier below the timeline. Brochure work for
+       local businesses; deliberately the lightest weight on the page so it
+       reads as range, not as Selected Work. No tags, no modal. ── */
+    .also {
+      margin-top: 64px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+
+    .also-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .also-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px 14px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .also-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .also-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .also-desc {
+      font-size: 0.9375rem;
+      color: var(--secondary);
+    }
+
+    .also-link {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--secondary);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .also-link:hover {
+      color: var(--accent);
+    }
+
     /* ── Writing ── */
 
     @keyframes marquee {
@@ -1207,6 +1264,23 @@
           </div>
         </div>
 
+        </div>
+
+        <!-- Also: lightweight client sites, subordinate to the timeline above -->
+        <div class="also">
+          <div class="also-label">Also — client sites</div>
+
+          <div class="also-item">
+            <span class="also-name">The Mind Doctor</span>
+            <span class="also-desc">Site for a Nairobi psychiatry &amp; wellness practice.</span>
+            <a class="also-link" href="https://theminddoctor.vercel.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+          </div>
+
+          <div class="also-item">
+            <span class="also-name">Vision Sketch &amp; Build</span>
+            <span class="also-desc">Site for a BORAQS-registered Nairobi architect.</span>
+            <a class="also-link" href="https://visionsketch.vercel.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+          </div>
         </div>
 
       </section>
