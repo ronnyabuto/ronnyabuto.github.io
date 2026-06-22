@@ -495,6 +495,20 @@
       font-weight: 400;
     }
 
+    .project-desc-full a {
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .project-desc-full a strong {
+      color: inherit;
+    }
+
+    .project-desc-full a:hover {
+      border-bottom-color: var(--accent);
+    }
+
     .project-modal .project-desc-full {
       display: block;
     }
@@ -1186,7 +1200,8 @@
               problem where a timeout mid-POST leaves the invoice state unknown. This SDK handles
               all of that, plus async support with full API parity and a supplier onboarding gateway
               for informal sector compliance under Finance Act 2023 §16(1)(c). The tax calculator
-              works offline with no credentials.
+              works offline with no credentials. It's the SDK that powers
+              <a href="https://taxid.co.ke" target="_blank" rel="noopener noreferrer"><strong>TaxID</strong></a>, the compliance layer I build for the informal economy.
             </p>
             <div class="tag-row">
               <span class="tag">Python</span>
@@ -1425,8 +1440,9 @@
         <h2 class="section-head"><span class="section-num">04</span>Now</h2>
         <p>
           Building <a href="https://taxid.co.ke" target="_blank" rel="noopener noreferrer">TaxID</a> —
-          compliance infrastructure for Kenya's informal economy. Thinking about what it
-          means to build software for systems that were never designed to be programmed against.
+          compliance infrastructure for Kenya's informal economy, live and bootstrapped in the
+          open. Thinking about what it means to build software for systems that were never
+          designed to be programmed against.
         </p>
         <p>
           Most of the interesting engineering problems in East Africa aren't algorithmic.
